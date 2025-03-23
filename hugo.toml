@@ -1,0 +1,30 @@
+baseURL = 'https://emtwo.ir'
+languageCode = 'en-us'
+title = 'Writed Security Tips'
+theme = 'hugo-PaperMod'
+
+
+[menu]
+  [[menu.main]]
+    identifier = "home"
+    name = "Home"
+    url = "/"
+    weight = 1
+
+  [[menu.main]]
+    identifier = "posts"
+    name = "Posts"
+    url = "/posts/"
+    weight = 2
+
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+    weight = 3
+
+  [[menu.main]]
+    identifier = "download"
+    name = "Download"
+    url = "/download/"
+    weight = 4
