@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Reflected XSS via searchKey Parameter | Writed Security Tips</title>
+<meta name="keywords" content="">
+<meta name="description" content="
+Overview
+This report details the discovery and exploitation of a Cross-Site Scripting (XSS) vulnerability identified in the Vulnerability Disclosure Program (VDP) of a target website.
+Reconnaissance
+The reconnaissance phase began with the enumeration of subdomains to identify fresh assets that might be unexplored by previous researchers. Initially, I utilized the tool subfinder with the following command:
+subfinder -d target.com -all -silent | tee target.com.subs
+Using the -all switch significantly enhanced the enumeration results. To ensure comprehensive coverage, DNS brute-forcing was also executed with shuffleDNS against a wordlist containing approximately 24 million entries:">
+<meta name="author" content="">
+<link rel="canonical" href="https://emtwo.ir/posts/reflected_xss/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.f49d66caae9ea0fd43f21f29e71a8d3e284517ed770f2aa86fa012953ad3c9ef.css" integrity="sha256-9J1myq6eoP1D8h8p5xqNPihFF&#43;13Dyqob6ASlTrTye8=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://emtwo.ir/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://emtwo.ir/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://emtwo.ir/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://emtwo.ir/apple-touch-icon.png">
+<link rel="mask-icon" href="https://emtwo.ir/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://emtwo.ir/posts/reflected_xss/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:url" content="https://emtwo.ir/posts/reflected_xss/">
+  <meta property="og:site_name" content="Writed Security Tips">
+  <meta property="og:title" content="Reflected XSS via searchKey Parameter">
+  <meta property="og:description" content="
+Overview This report details the discovery and exploitation of a Cross-Site Scripting (XSS) vulnerability identified in the Vulnerability Disclosure Program (VDP) of a target website.
+Reconnaissance The reconnaissance phase began with the enumeration of subdomains to identify fresh assets that might be unexplored by previous researchers. Initially, I utilized the tool subfinder with the following command:
+subfinder -d target.com -all -silent | tee target.com.subs Using the -all switch significantly enhanced the enumeration results. To ensure comprehensive coverage, DNS brute-forcing was also executed with shuffleDNS against a wordlist containing approximately 24 million entries:">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-03-24T02:40:02+00:00">
+    <meta property="article:modified_time" content="2025-03-24T02:40:02+00:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Reflected XSS via searchKey Parameter">
+<meta name="twitter:description" content="
+Overview
+This report details the discovery and exploitation of a Cross-Site Scripting (XSS) vulnerability identified in the Vulnerability Disclosure Program (VDP) of a target website.
+Reconnaissance
+The reconnaissance phase began with the enumeration of subdomains to identify fresh assets that might be unexplored by previous researchers. Initially, I utilized the tool subfinder with the following command:
+subfinder -d target.com -all -silent | tee target.com.subs
+Using the -all switch significantly enhanced the enumeration results. To ensure comprehensive coverage, DNS brute-forcing was also executed with shuffleDNS against a wordlist containing approximately 24 million entries:">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://emtwo.ir/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Reflected XSS via searchKey Parameter",
+      "item": "https://emtwo.ir/posts/reflected_xss/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Reflected XSS via searchKey Parameter",
+  "name": "Reflected XSS via searchKey Parameter",
+  "description": "\nOverview This report details the discovery and exploitation of a Cross-Site Scripting (XSS) vulnerability identified in the Vulnerability Disclosure Program (VDP) of a target website.\nReconnaissance The reconnaissance phase began with the enumeration of subdomains to identify fresh assets that might be unexplored by previous researchers. Initially, I utilized the tool subfinder with the following command:\nsubfinder -d target.com -all -silent | tee target.com.subs Using the -all switch significantly enhanced the enumeration results. To ensure comprehensive coverage, DNS brute-forcing was also executed with shuffleDNS against a wordlist containing approximately 24 million entries:\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "\nOverview This report details the discovery and exploitation of a Cross-Site Scripting (XSS) vulnerability identified in the Vulnerability Disclosure Program (VDP) of a target website.\nReconnaissance The reconnaissance phase began with the enumeration of subdomains to identify fresh assets that might be unexplored by previous researchers. Initially, I utilized the tool subfinder with the following command:\nsubfinder -d target.com -all -silent | tee target.com.subs Using the -all switch significantly enhanced the enumeration results. To ensure comprehensive coverage, DNS brute-forcing was also executed with shuffleDNS against a wordlist containing approximately 24 million entries:\nshuffledns -d target.com -r resolver.txt -w words.txt -mode bruteforce -silent | anew target.com.subs This approach resulted in approximately 400 unique subdomains. To verify which of these subdomains had active HTTP services, I employed httpx:\ncat target.com.subs | httpx -silent -sc -title -fr | tee target.com.http Ultimately, 23 subdomains were confirmed to have active HTTP services.\nIn-depth Analysis and Fuzzing One of these subdomains, commercial.target.com, was selected for deeper investigation. Historical URLs and parameters were identified using waybackurl:\necho commercial.target.com | waybackurl \u003e commercial.target.com.wayback The resulting data contained numerous URLs and JavaScript files. All unique words from these URLs were extracted with diverman, yielding approximately 14,000 unique, target-specific terms. These terms provided an ideal basis for subsequent fuzzing of the web application endpoints.\nFuzzing commenced using ffuf to identify hidden or undocumented paths:\nffuf -w uniqewords.txt -u https://commercial.target.com/FUZZ -c -mc all -fs 14 ffuf -w uniqewords.txt -u https://commercial.target.com/path/FUZZ -c -mc all -fs 14 ffuf -w uniqewords.txt -u https://commercial.target.com/path/path/FUZZ -c -mc all -fs 14 This process led to a specific endpoint:\nhttps://commercial.target.com/path/path/path Parameter fuzzing was then conducted with the tool x8 to uncover potentially exploitable parameters:\nx8 -u https://commercial.target.com/path/path/path -w uniqewords.txt -X GET POST The fuzzing process identified three reflective parameters: q, s, and searchKey.\nVulnerability Identification and Exploitation Initial tests with the input value amir123 confirmed reflection in all three parameters:\nhttps://commercial.target.com/path/path/path?q=amir123\u0026s=amir123\u0026searchKey=amir123 Subsequently, input validation was tested using the payload to assess HTML tag handling. The parameters q and s properly encoded HTML tags, whereas the searchKey parameter rendered the payload directly, revealing a reflected XSS vulnerability.\nThe final proof-of-concept payload executed successfully:\n\"\u003e\u003cscript\u003ealert(origin)\u003c/script\u003e URL:\nhttps://commercial.target.com/path/path/path/?searchKey=\"\u003e Impact The discovered vulnerability enabled an attacker to execute arbitrary JavaScript in the victim’s browser, facilitating cookie theft and unauthorized access to user accounts.\nDespite the severity rated as “low” by HackerOne triagers, the prompt validation and effective reporting resulted in an invitation to a private bug bounty program within four hours of submission.\nConclusion This detailed report highlights the importance of thorough reconnaissance, precise fuzzing, and careful testing of web application parameters. Proper validation measures are critical to preventing vulnerabilities such as Cross-Site Scripting.\nI hope this report has been useful to you.\n",
+  "wordCount" : "452",
+  "inLanguage": "en",
+  "datePublished": "2025-03-24T02:40:02Z",
+  "dateModified": "2025-03-24T02:40:02Z",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://emtwo.ir/posts/reflected_xss/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Writed Security Tips",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://emtwo.ir/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://emtwo.ir/" accesskey="h" title="Writed Security Tips (Alt + H)">Writed Security Tips</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://emtwo.ir/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://emtwo.ir/posts/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://emtwo.ir/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://emtwo.ir/download/" title="Download">
+                    <span>Download</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Reflected XSS via searchKey Parameter
+    </h1>
+    <div class="post-meta"><span title='2025-03-24 02:40:02 +0000 UTC'>March 24, 2025</span>
+
+</div>
+  </header> 
+  <div class="post-content"><p><img alt="Alt Text" loading="lazy" src="/images/1.jpg"></p>
+<h3 id="overview">Overview<a hidden class="anchor" aria-hidden="true" href="#overview">#</a></h3>
+<p>This report details the discovery and exploitation of a Cross-Site Scripting (XSS) vulnerability identified in the Vulnerability Disclosure Program (VDP) of a target website.</p>
+<h3 id="reconnaissance">Reconnaissance<a hidden class="anchor" aria-hidden="true" href="#reconnaissance">#</a></h3>
+<p>The reconnaissance phase began with the enumeration of subdomains to identify fresh assets that might be unexplored by previous researchers. Initially, I utilized the tool <code>subfinder</code> with the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>subfinder -d target.com -all -silent | tee target.com.subs
+</span></span></code></pre></div><p>Using the <code>-all</code> switch significantly enhanced the enumeration results. To ensure comprehensive coverage, DNS brute-forcing was also executed with <code>shuffleDNS</code> against a wordlist containing approximately 24 million entries:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>shuffledns -d target.com -r resolver.txt -w words.txt -mode bruteforce -silent | anew target.com.subs
+</span></span></code></pre></div><p>This approach resulted in approximately 400 unique subdomains. To verify which of these subdomains had active HTTP services, I employed <code>httpx</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cat target.com.subs | httpx -silent -sc -title -fr | tee target.com.http
+</span></span></code></pre></div><p>Ultimately, 23 subdomains were confirmed to have active HTTP services.</p>
+<h3 id="in-depth-analysis-and-fuzzing">In-depth Analysis and Fuzzing<a hidden class="anchor" aria-hidden="true" href="#in-depth-analysis-and-fuzzing">#</a></h3>
+<p>One of these subdomains, <code>commercial.target.com</code>, was selected for deeper investigation. Historical URLs and parameters were identified using <code>waybackurl</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>echo commercial.target.com | waybackurl &gt; commercial.target.com.wayback
+</span></span></code></pre></div><p>The resulting data contained numerous URLs and JavaScript files. All unique words from these URLs were extracted with <code>diverman</code>, yielding approximately 14,000 unique, target-specific terms. These terms provided an ideal basis for subsequent fuzzing of the web application endpoints.</p>
+<p>Fuzzing commenced using <code>ffuf</code> to identify hidden or undocumented paths:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ffuf -w uniqewords.txt -u https://commercial.target.com/FUZZ -c -mc all -fs <span style="color:#ae81ff">14</span>
+</span></span><span style="display:flex;"><span>ffuf -w uniqewords.txt -u https://commercial.target.com/path/FUZZ -c -mc all -fs <span style="color:#ae81ff">14</span>
+</span></span><span style="display:flex;"><span>ffuf -w uniqewords.txt -u https://commercial.target.com/path/path/FUZZ -c -mc all -fs <span style="color:#ae81ff">14</span>
+</span></span></code></pre></div><p>This process led to a specific endpoint:</p>
+<pre tabindex="0"><code>https://commercial.target.com/path/path/path
+</code></pre><p>Parameter fuzzing was then conducted with the tool <code>x8</code> to uncover potentially exploitable parameters:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>x8 -u https://commercial.target.com/path/path/path -w uniqewords.txt -X GET POST
+</span></span></code></pre></div><p>The fuzzing process identified three reflective parameters: <code>q</code>, <code>s</code>, and <code>searchKey</code>.</p>
+<h3 id="vulnerability-identification-and-exploitation">Vulnerability Identification and Exploitation<a hidden class="anchor" aria-hidden="true" href="#vulnerability-identification-and-exploitation">#</a></h3>
+<p>Initial tests with the input value <code>amir123</code> confirmed reflection in all three parameters:</p>
+<pre tabindex="0"><code>https://commercial.target.com/path/path/path?q=amir123&amp;s=amir123&amp;searchKey=amir123
+</code></pre><p>Subsequently, input validation was tested using the payload <code>&lt;/test&gt;</code> to assess HTML tag handling. The parameters <code>q</code> and <code>s</code> properly encoded HTML tags, whereas the <code>searchKey</code> parameter rendered the payload directly, revealing a reflected XSS vulnerability.</p>
+<p>The final proof-of-concept payload executed successfully:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&#34;&gt;&lt;<span style="color:#f92672">script</span>&gt;<span style="color:#a6e22e">alert</span>(<span style="color:#a6e22e">origin</span>)&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span></code></pre></div><p>URL:</p>
+<pre tabindex="0"><code>https://commercial.target.com/path/path/path/?searchKey=&#34;&gt;&lt;script&gt;alert(origin)&lt;/script&gt;
+</code></pre><p><img alt="Alt Text" loading="lazy" src="/images/2.jpg"></p>
+<h3 id="impact">Impact<a hidden class="anchor" aria-hidden="true" href="#impact">#</a></h3>
+<p>The discovered vulnerability enabled an attacker to execute arbitrary JavaScript in the victim’s browser, facilitating cookie theft and unauthorized access to user accounts.</p>
+<p>Despite the severity rated as &ldquo;low&rdquo; by HackerOne triagers, the prompt validation and effective reporting resulted in an invitation to a private bug bounty program within four hours of submission.</p>
+<h3 id="conclusion">Conclusion<a hidden class="anchor" aria-hidden="true" href="#conclusion">#</a></h3>
+<p>This detailed report highlights the importance of thorough reconnaissance, precise fuzzing, and careful testing of web application parameters. Proper validation measures are critical to preventing vulnerabilities such as Cross-Site Scripting.</p>
+<hr>
+<p>I hope this report has been useful to you.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="https://emtwo.ir/">Writed Security Tips</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

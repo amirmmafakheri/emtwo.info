@@ -154,19 +154,18 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">Reflected Cross-Site Scripting (XSS) via searchKey Parameter
+    <h2 class="entry-hint-parent">Reflected XSS via searchKey Parameter
     </h2>
   </header>
   <div class="entry-content">
     <p>
-Summary A reflected Cross-Site Scripting (XSS) vulnerability exists on the Century 21 Commercial website due to insufficient input sanitization in the searchKey parameter. This allows an attacker to inject and execute arbitrary JavaScript in a victim’s browser, potentially leading to session hijacking, credential theft, or other malicious actions.
-Affected URL https://commercial.century21.com/real-estate/roscommon-county-mi/LNMIROSCOMMON
-Vulnerable Parameter searchKey
-Proof of Concept (PoC) Steps to Reproduce Open the following URL in a browser:
+Overview This report details the discovery and exploitation of a Cross-Site Scripting (XSS) vulnerability identified in the Vulnerability Disclosure Program (VDP) of a target website.
+Reconnaissance The reconnaissance phase began with the enumeration of subdomains to identify fresh assets that might be unexplored by previous researchers. Initially, I utilized the tool subfinder with the following command:
+subfinder -d target.com -all -silent | tee target.com.subs Using the -all switch significantly enhanced the enumeration results. To ensure comprehensive coverage, DNS brute-forcing was also executed with shuffleDNS against a wordlist containing approximately 24 million entries:
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2025-03-15 13:41:28 +0000 UTC'>March 15, 2025</span></footer>
-  <a class="entry-link" aria-label="post link to Reflected Cross-Site Scripting (XSS) via searchKey Parameter" href="https://emtwo.ir/posts/xssinvdpprogram/"></a>
+  <footer class="entry-footer"><span title='2025-03-24 02:40:02 +0000 UTC'>March 24, 2025</span></footer>
+  <a class="entry-link" aria-label="post link to Reflected XSS via searchKey Parameter" href="https://emtwo.ir/posts/reflected_xss/"></a>
 </article>
     </main>
     
