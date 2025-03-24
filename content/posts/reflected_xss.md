@@ -85,7 +85,7 @@ https://commercial.target.com/path/path/path/?searchKey="><script>alert(origin)<
 ### Impact
 The discovered vulnerability enabled an attacker to execute arbitrary JavaScript in the victim’s browser, facilitating cookie theft and unauthorized access to user accounts.
 
-Despite the severity rated as "low" by HackerOne triagers, the prompt validation and effective reporting resulted in an invitation to a private bug bounty program within four hours of submission.
+Despite the severity rated as "low" by HackerOne triage, the prompt validation and effective reporting resulted in an invitation to a private bug bounty program within four hours of submission.
 
 ### Conclusion
 This detailed report highlights the importance of thorough reconnaissance, precise fuzzing, and careful testing of web application parameters. Proper validation measures are critical to preventing vulnerabilities such as Cross-Site Scripting.
