@@ -5,11 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>Reflected XSS via searchKey Parameter | Writed Security Tips</title>
+<title>Reflected XSS via Magic Words | Writed Security Tips</title>
 <meta name="keywords" content="">
 <meta name="description" content="
 Overview
-This report details the discovery and exploitation of a Cross-Site Scripting (XSS) vulnerability identified in the Vulnerability Disclosure Program (VDP) of a target website.
+This report details the discovery and exploitation of a XSS vulnerability identified in the Vulnerability Disclosure Program (VDP) of a target website.
 Reconnaissance
 The reconnaissance phase began with the enumeration of subdomains to identify fresh assets that might be unexplored by previous researchers. Initially, I utilized the tool subfinder with the following command:
 subfinder -d target.com -all -silent | tee target.com.subs
@@ -63,9 +63,9 @@ Using the -all switch significantly enhanced the enumeration results. To ensure 
     </style>
 </noscript><meta property="og:url" content="https://emtwo.ir/posts/reflected_xss/">
   <meta property="og:site_name" content="Writed Security Tips">
-  <meta property="og:title" content="Reflected XSS via searchKey Parameter">
+  <meta property="og:title" content="Reflected XSS via Magic Words">
   <meta property="og:description" content="
-Overview This report details the discovery and exploitation of a Cross-Site Scripting (XSS) vulnerability identified in the Vulnerability Disclosure Program (VDP) of a target website.
+Overview This report details the discovery and exploitation of a XSS vulnerability identified in the Vulnerability Disclosure Program (VDP) of a target website.
 Reconnaissance The reconnaissance phase began with the enumeration of subdomains to identify fresh assets that might be unexplored by previous researchers. Initially, I utilized the tool subfinder with the following command:
 subfinder -d target.com -all -silent | tee target.com.subs Using the -all switch significantly enhanced the enumeration results. To ensure comprehensive coverage, DNS brute-forcing was also executed with shuffleDNS against a wordlist containing approximately 24 million entries:">
   <meta property="og:locale" content="en-us">
@@ -74,10 +74,10 @@ subfinder -d target.com -all -silent | tee target.com.subs Using the -all switch
     <meta property="article:published_time" content="2025-03-24T02:40:02+00:00">
     <meta property="article:modified_time" content="2025-03-24T02:40:02+00:00">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Reflected XSS via searchKey Parameter">
+<meta name="twitter:title" content="Reflected XSS via Magic Words">
 <meta name="twitter:description" content="
 Overview
-This report details the discovery and exploitation of a Cross-Site Scripting (XSS) vulnerability identified in the Vulnerability Disclosure Program (VDP) of a target website.
+This report details the discovery and exploitation of a XSS vulnerability identified in the Vulnerability Disclosure Program (VDP) of a target website.
 Reconnaissance
 The reconnaissance phase began with the enumeration of subdomains to identify fresh assets that might be unexplored by previous researchers. Initially, I utilized the tool subfinder with the following command:
 subfinder -d target.com -all -silent | tee target.com.subs
@@ -98,7 +98,7 @@ Using the -all switch significantly enhanced the enumeration results. To ensure 
     {
       "@type": "ListItem",
       "position":  2 ,
-      "name": "Reflected XSS via searchKey Parameter",
+      "name": "Reflected XSS via Magic Words",
       "item": "https://emtwo.ir/posts/reflected_xss/"
     }
   ]
@@ -108,14 +108,14 @@ Using the -all switch significantly enhanced the enumeration results. To ensure 
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Reflected XSS via searchKey Parameter",
-  "name": "Reflected XSS via searchKey Parameter",
-  "description": "\nOverview This report details the discovery and exploitation of a Cross-Site Scripting (XSS) vulnerability identified in the Vulnerability Disclosure Program (VDP) of a target website.\nReconnaissance The reconnaissance phase began with the enumeration of subdomains to identify fresh assets that might be unexplored by previous researchers. Initially, I utilized the tool subfinder with the following command:\nsubfinder -d target.com -all -silent | tee target.com.subs Using the -all switch significantly enhanced the enumeration results. To ensure comprehensive coverage, DNS brute-forcing was also executed with shuffleDNS against a wordlist containing approximately 24 million entries:\n",
+  "headline": "Reflected XSS via Magic Words",
+  "name": "Reflected XSS via Magic Words",
+  "description": "\nOverview This report details the discovery and exploitation of a XSS vulnerability identified in the Vulnerability Disclosure Program (VDP) of a target website.\nReconnaissance The reconnaissance phase began with the enumeration of subdomains to identify fresh assets that might be unexplored by previous researchers. Initially, I utilized the tool subfinder with the following command:\nsubfinder -d target.com -all -silent | tee target.com.subs Using the -all switch significantly enhanced the enumeration results. To ensure comprehensive coverage, DNS brute-forcing was also executed with shuffleDNS against a wordlist containing approximately 24 million entries:\n",
   "keywords": [
     
   ],
-  "articleBody": "\nOverview This report details the discovery and exploitation of a Cross-Site Scripting (XSS) vulnerability identified in the Vulnerability Disclosure Program (VDP) of a target website.\nReconnaissance The reconnaissance phase began with the enumeration of subdomains to identify fresh assets that might be unexplored by previous researchers. Initially, I utilized the tool subfinder with the following command:\nsubfinder -d target.com -all -silent | tee target.com.subs Using the -all switch significantly enhanced the enumeration results. To ensure comprehensive coverage, DNS brute-forcing was also executed with shuffleDNS against a wordlist containing approximately 24 million entries:\nshuffledns -d target.com -r resolver.txt -w words.txt -mode bruteforce -silent | anew target.com.subs This approach resulted in approximately 400 unique subdomains. To verify which of these subdomains had active HTTP services, I employed httpx:\ncat target.com.subs | httpx -silent -sc -title -fr | tee target.com.http Ultimately, 23 subdomains were confirmed to have active HTTP services.\nIn-depth Analysis and Fuzzing One of these subdomains, commercial.target.com, was selected for deeper investigation. Historical URLs and parameters were identified using waybackurl:\necho commercial.target.com | waybackurl \u003e commercial.target.com.wayback The resulting data contained numerous URLs and JavaScript files. All unique words from these URLs were extracted with diverman, yielding approximately 14,000 unique, target-specific terms. These terms provided an ideal basis for subsequent fuzzing of the web application endpoints.\nFuzzing commenced using ffuf to identify hidden or undocumented paths:\nffuf -w uniqewords.txt -u https://commercial.target.com/FUZZ -c -mc all -fs 14 ffuf -w uniqewords.txt -u https://commercial.target.com/path/FUZZ -c -mc all -fs 14 ffuf -w uniqewords.txt -u https://commercial.target.com/path/path/FUZZ -c -mc all -fs 14 This process led to a specific endpoint:\nhttps://commercial.target.com/path/path/path Parameter fuzzing was then conducted with the tool x8 to uncover potentially exploitable parameters:\nx8 -u https://commercial.target.com/path/path/path -w uniqewords.txt -X GET POST The fuzzing process identified three reflective parameters: q, s, and searchKey.\nVulnerability Identification and Exploitation Initial tests with the input value amir123 confirmed reflection in all three parameters:\nhttps://commercial.target.com/path/path/path?q=amir123\u0026s=amir123\u0026searchKey=amir123 Subsequently, input validation was tested using the payload to assess HTML tag handling. The parameters q and s properly encoded HTML tags, whereas the searchKey parameter rendered the payload directly, revealing a reflected XSS vulnerability.\nThe final proof-of-concept payload executed successfully:\n\"\u003e\u003cscript\u003ealert(origin)\u003c/script\u003e URL:\nhttps://commercial.target.com/path/path/path/?searchKey=\"\u003e Impact The discovered vulnerability enabled an attacker to execute arbitrary JavaScript in the victim’s browser, facilitating cookie theft and unauthorized access to user accounts.\nDespite the severity rated as “low” by HackerOne triage, the prompt validation and effective reporting resulted in an invitation to a private bug bounty program within four hours of submission.\nConclusion This detailed report highlights the importance of thorough reconnaissance, precise fuzzing, and careful testing of web application parameters. Proper validation measures are critical to preventing vulnerabilities such as Cross-Site Scripting.\nI hope this report has been useful to you.\n",
-  "wordCount" : "452",
+  "articleBody": "\nOverview This report details the discovery and exploitation of a XSS vulnerability identified in the Vulnerability Disclosure Program (VDP) of a target website.\nReconnaissance The reconnaissance phase began with the enumeration of subdomains to identify fresh assets that might be unexplored by previous researchers. Initially, I utilized the tool subfinder with the following command:\nsubfinder -d target.com -all -silent | tee target.com.subs Using the -all switch significantly enhanced the enumeration results. To ensure comprehensive coverage, DNS brute-forcing was also executed with shuffleDNS against a wordlist containing approximately 24 million entries:\nshuffledns -d target.com -r resolver.txt -w words.txt -mode bruteforce -silent | anew target.com.subs This approach resulted in approximately 400 unique subdomains. To verify which of these subdomains had active HTTP services, I employed httpx:\ncat target.com.subs | httpx -silent -sc -title -fr | tee target.com.http Ultimately, 23 subdomains were confirmed to have active HTTP services.\nIn-depth Analysis and Fuzzing One of these subdomains, commercial.target.com, was selected for deeper investigation. Historical URLs and parameters were identified using waybackurl:\necho commercial.target.com | waybackurl \u003e commercial.target.com.wayback The resulting data contained numerous URLs and JavaScript files. All unique words from these URLs were extracted with diverman, yielding approximately 14,000 unique, target-specific terms. These terms provided an ideal basis for subsequent fuzzing of the web application endpoints.\nFuzzing commenced using ffuf to identify hidden or undocumented paths:\nffuf -w uniqewords.txt -u https://commercial.target.com/FUZZ -c -mc all -fs 14 ffuf -w uniqewords.txt -u https://commercial.target.com/path/FUZZ -c -mc all -fs 14 ffuf -w uniqewords.txt -u https://commercial.target.com/path/path/FUZZ -c -mc all -fs 14 This process led to a specific endpoint:\nhttps://commercial.target.com/path/path/path Parameter fuzzing was then conducted with the tool x8 to uncover potentially exploitable parameters:\nx8 -u https://commercial.target.com/path/path/path -w uniqewords.txt -X GET POST The fuzzing process identified three reflective parameters: q, s, and searchKey.\nVulnerability Identification and Exploitation Initial tests with the input value amir123 confirmed reflection in all three parameters:\nhttps://commercial.target.com/path/path/path?q=amir123\u0026s=amir123\u0026searchKey=amir123 Subsequently, input validation was tested using the payload to assess HTML tag handling. The parameters q and s properly encoded HTML tags, whereas the searchKey parameter rendered the payload directly, revealing a reflected XSS vulnerability.\nThe final proof-of-concept payload executed successfully:\n\"\u003e\u003cscript\u003ealert(origin)\u003c/script\u003e URL:\nhttps://commercial.target.com/path/path/path/?searchKey=\"\u003e Impact The discovered vulnerability enabled an attacker to execute arbitrary JavaScript in the victim’s browser, facilitating cookie theft and unauthorized access to user accounts.\nDespite the severity rated as “low” by HackerOne triage, the prompt validation and effective reporting resulted in an invitation to a private bug bounty program within four hours of submission.\nConclusion This detailed report highlights the importance of thorough reconnaissance, precise fuzzing, and careful testing of web application parameters. Proper validation measures are critical to preventing vulnerabilities such as Cross-Site Scripting.\nI hope this report has been useful to you.\n",
+  "wordCount" : "450",
   "inLanguage": "en",
   "datePublished": "2025-03-24T02:40:02Z",
   "dateModified": "2025-03-24T02:40:02Z",
@@ -204,7 +204,7 @@ Using the -all switch significantly enhanced the enumeration results. To ensure 
   <header class="post-header">
     
     <h1 class="post-title entry-hint-parent">
-      Reflected XSS via searchKey Parameter
+      Reflected XSS via Magic Words
     </h1>
     <div class="post-meta"><span title='2025-03-24 02:40:02 +0000 UTC'>March 24, 2025</span>
 
@@ -212,7 +212,7 @@ Using the -all switch significantly enhanced the enumeration results. To ensure 
   </header> 
   <div class="post-content"><p><img alt="Alt Text" loading="lazy" src="/images/1.jpg"></p>
 <h3 id="overview">Overview<a hidden class="anchor" aria-hidden="true" href="#overview">#</a></h3>
-<p>This report details the discovery and exploitation of a Cross-Site Scripting (XSS) vulnerability identified in the Vulnerability Disclosure Program (VDP) of a target website.</p>
+<p>This report details the discovery and exploitation of a XSS vulnerability identified in the Vulnerability Disclosure Program (VDP) of a target website.</p>
 <h3 id="reconnaissance">Reconnaissance<a hidden class="anchor" aria-hidden="true" href="#reconnaissance">#</a></h3>
 <p>The reconnaissance phase began with the enumeration of subdomains to identify fresh assets that might be unexplored by previous researchers. Initially, I utilized the tool <code>subfinder</code> with the following command:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>subfinder -d target.com -all -silent | tee target.com.subs

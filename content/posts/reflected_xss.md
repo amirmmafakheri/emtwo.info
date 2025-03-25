@@ -1,13 +1,13 @@
 +++
 date = '2025-03-24T02:40:02Z'
 draft = false
-title = 'Reflected XSS via searchKey Parameter'
+title = 'Reflected XSS via Magic Words'
 +++
 
 ![Alt Text](/images/1.jpg)
 
 ### Overview
-This report details the discovery and exploitation of a Cross-Site Scripting (XSS) vulnerability identified in the Vulnerability Disclosure Program (VDP) of a target website.
+This report details the discovery and exploitation of a XSS vulnerability identified in the Vulnerability Disclosure Program (VDP) of a target website.
 
 ### Reconnaissance
 The reconnaissance phase began with the enumeration of subdomains to identify fresh assets that might be unexplored by previous researchers. Initially, I utilized the tool `subfinder` with the following command:
