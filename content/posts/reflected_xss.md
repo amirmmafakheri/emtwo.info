@@ -37,14 +37,18 @@ One of these subdomains, `commercial.target.com`, was selected for deeper invest
 echo commercial.target.com | waybackurl > commercial.target.com.wayback
 ```
 
-The resulting data contained numerous URLs and JavaScript files. All unique words from these URLs were extracted with `diverman`, yielding approximately 14,000 unique, target-specific terms. These terms provided an ideal basis for subsequent fuzzing of the web application endpoints.
+The resulting data contained numerous URLs and JavaScript files. All unique words from these URLs were extracted with `diverman`:
+```bash
+python diverman.py -f commercial.target.com.wayback | sort -u > uniquewords.txt
+```
+yielding approximately 14,000 unique, target-specific terms. These terms provided an ideal basis for subsequent fuzzing of the web application endpoints.
 
 Fuzzing commenced using `ffuf` to identify hidden or undocumented paths:
 
 ```bash
-ffuf -w uniqewords.txt -u https://commercial.target.com/FUZZ -c -mc all -fs 14
-ffuf -w uniqewords.txt -u https://commercial.target.com/path/FUZZ -c -mc all -fs 14
-ffuf -w uniqewords.txt -u https://commercial.target.com/path/path/FUZZ -c -mc all -fs 14
+ffuf -w uniquewords.txt -u https://commercial.target.com/FUZZ -c -mc all -fs 14
+ffuf -w uniquewords.txt -u https://commercial.target.com/path/FUZZ -c -mc all -fs 14
+ffuf -w uniquewords.txt -u https://commercial.target.com/path/path/FUZZ -c -mc all -fs 14
 ```
 
 This process led to a specific endpoint:
