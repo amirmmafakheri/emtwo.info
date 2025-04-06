@@ -12,9 +12,9 @@ theme = 'hugo-PaperMod'
     weight = 1
 
   [[menu.main]]
-    identifier = "posts"
-    name = "Posts"
-    url = "/posts/"
+    identifier = "articles"
+    name = "Articles"
+    url = "/articles/"
     weight = 2
 
   [[menu.main]]
