@@ -19,7 +19,7 @@ I am a passionate **Cyber Security Researcher** with a strong focus on **penetra
 ## 🚀 Skills & Tools
 
 - **Programming:** Python, Bash  
-- **Security Tools:** Diverman, Tamperman, Tagman, ...  
+- **Security Tools:** Diverman, Tamperman, Tagman, Ba2ckman, Extractor, Backupx, ...  
 - **Cloud Security:** AWS, Azure Security Best Practices  
 - **OSINT:** Shodan, Maltego, Google Dorking  
 
