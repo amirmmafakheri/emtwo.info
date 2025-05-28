@@ -1,4 +1,4 @@
-baseURL = 'https://emtwo.ir'
+baseURL = 'https://emtwo.info'
 languageCode = 'en-us'
 title = 'Writed Security Tips'
 theme = 'hugo-PaperMod'
