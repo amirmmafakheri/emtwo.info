@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Writed Security Tips</title>
-    <link>https://emtwo.ir/</link>
+    <link>https://emtwo.info/</link>
     <description>Recent content on Writed Security Tips</description>
     <generator>Hugo -- 0.147.5</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 24 Mar 2025 02:40:02 +0000</lastBuildDate>
-    <atom:link href="https://emtwo.ir/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://emtwo.info/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Reflected XSS via Magic Words</title>
-      <link>https://emtwo.ir/articles/reflected_xss/</link>
+      <link>https://emtwo.info/articles/reflected_xss/</link>
       <pubDate>Mon, 24 Mar 2025 02:40:02 +0000</pubDate>
-      <guid>https://emtwo.ir/articles/reflected_xss/</guid>
-      <description>&lt;p&gt;&lt;img alt=&#34;Alt Text&#34; loading=&#34;lazy&#34; src=&#34;https://emtwo.ir/images/1.jpg&#34;&gt;&lt;/p&gt;
+      <guid>https://emtwo.info/articles/reflected_xss/</guid>
+      <description>&lt;p&gt;&lt;img alt=&#34;Alt Text&#34; loading=&#34;lazy&#34; src=&#34;https://emtwo.info/images/1.jpg&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;overview&#34;&gt;Overview&lt;/h3&gt;
 &lt;p&gt;This report details the discovery and exploitation of a XSS vulnerability identified in the Vulnerability Disclosure Program (VDP) of a target website.&lt;/p&gt;
 &lt;h3 id=&#34;reconnaissance&#34;&gt;Reconnaissance&lt;/h3&gt;
@@ -23,17 +23,17 @@
     </item>
     <item>
       <title>Download</title>
-      <link>https://emtwo.ir/download/</link>
+      <link>https://emtwo.info/download/</link>
       <pubDate>Sat, 15 Mar 2025 14:00:58 +0000</pubDate>
-      <guid>https://emtwo.ir/download/</guid>
+      <guid>https://emtwo.info/download/</guid>
       <description></description>
     </item>
     <item>
       <title>About</title>
-      <link>https://emtwo.ir/about/</link>
+      <link>https://emtwo.info/about/</link>
       <pubDate>Sat, 15 Mar 2025 13:45:29 +0000</pubDate>
-      <guid>https://emtwo.ir/about/</guid>
-      <description>&lt;p&gt;&lt;img alt=&#34;Alt Text&#34; loading=&#34;lazy&#34; src=&#34;https://emtwo.ir/images/1.jpg&#34;&gt;&lt;/p&gt;
+      <guid>https://emtwo.info/about/</guid>
+      <description>&lt;p&gt;&lt;img alt=&#34;Alt Text&#34; loading=&#34;lazy&#34; src=&#34;https://emtwo.info/images/1.jpg&#34;&gt;&lt;/p&gt;
 &lt;p&gt;I am a passionate &lt;strong&gt;Cyber Security Researcher&lt;/strong&gt; with a strong focus on &lt;strong&gt;penetration testing, threat intelligence, and security automation&lt;/strong&gt;. My expertise lies in analyzing vulnerabilities, securing applications, and developing advanced security tools.&lt;/p&gt;
 &lt;h2 id=&#34;-research-areas&#34;&gt;🔍 Research Areas&lt;/h2&gt;
 &lt;ul&gt;
