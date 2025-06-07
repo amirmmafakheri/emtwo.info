@@ -13,7 +13,7 @@ I am a passionate **Cyber Security Researcher** with a strong focus on **penetra
 - Ethical Hacking & Penetration Testing  
 - Web and Network Security  
 - Threat Hunting & Intelligence Analysis  
-- Reverse Engineering & Malware Analysis  
+- Reverse Engineering & Android Malware Analysis(in Studing) 
 - Security Automation & Scripting  
 
 ## 🚀 Skills & Tools
