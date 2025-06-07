@@ -4,7 +4,7 @@ draft = false
 title = 'Reflected XSS via Magic Words'
 +++
 
-![Alt Text](/images/1.jpg)
+![Alt Text](/images/2.png)
 
 ### Overview
 This report details the discovery and exploitation of a XSS vulnerability identified in the Vulnerability Disclosure Program (VDP) of a target website.
