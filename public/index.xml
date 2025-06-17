@@ -13,7 +13,7 @@
       <link>https://emtwo.info/articles/reflected_xss/</link>
       <pubDate>Mon, 24 Mar 2025 02:40:02 +0000</pubDate>
       <guid>https://emtwo.info/articles/reflected_xss/</guid>
-      <description>&lt;p&gt;&lt;img alt=&#34;Alt Text&#34; loading=&#34;lazy&#34; src=&#34;https://emtwo.info/images/2.png&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img alt=&#34;Alt Text&#34; loading=&#34;lazy&#34; src=&#34;https://emtwo.info/images/2.jpg&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;overview&#34;&gt;Overview&lt;/h3&gt;
 &lt;p&gt;This report details the discovery and exploitation of a XSS vulnerability identified in the Vulnerability Disclosure Program (VDP) of a target website.&lt;/p&gt;
 &lt;h3 id=&#34;reconnaissance&#34;&gt;Reconnaissance&lt;/h3&gt;

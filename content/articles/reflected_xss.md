@@ -4,7 +4,7 @@ draft = false
 title = 'Reflected XSS via Magic Words'
 +++
 
-![Alt Text](/images/2.png)
+![Alt Text](/images/2.jpg)
 
 ### Overview
 This report details the discovery and exploitation of a XSS vulnerability identified in the Vulnerability Disclosure Program (VDP) of a target website.
@@ -84,7 +84,7 @@ URL:
 https://commercial.target.com/path/path/path/?searchKey="><script>alert(origin)</script>
 ```
 
-![Alt Text](/images/2.jpg)
+![Alt Text](/images/3.jpg)
 
 ### Impact
 The discovered vulnerability enabled an attacker to execute arbitrary JavaScript in the victim’s browser, facilitating cookie theft and unauthorized access to user accounts.
