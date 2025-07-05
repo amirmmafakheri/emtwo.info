@@ -37,7 +37,7 @@ One of these subdomains, `commercial.target.com`, was selected for deeper invest
 echo commercial.target.com | waybackurl > commercial.target.com.wayback
 ```
 
-The resulting data contained numerous URLs and JavaScript files. All unique words from these URLs were extracted with `diverman`:
+The resulting data contained numerous URLs and JavaScript files. All unique words from these URLs were extracted with [`diverman`](https://github.com/amirmmafakheri/Diverman):
 ```bash
 python diverman.py -f commercial.target.com.wayback | sort -u > uniquewords.txt
 ```
