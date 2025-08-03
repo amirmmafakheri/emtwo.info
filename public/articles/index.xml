@@ -6,8 +6,18 @@
     <description>Recent content in Articles on eMtwo Security Tips</description>
     <generator>Hugo -- 0.147.8</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 24 Mar 2025 02:40:02 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 03 Aug 2025 02:40:02 +0000</lastBuildDate>
     <atom:link href="https://emtwo.info/articles/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>🕷️ One Year of Data Engineering in the Field: A Practical Journey with a Startup Crawler Team</title>
+      <link>https://emtwo.info/articles/data_crawling/</link>
+      <pubDate>Sun, 03 Aug 2025 02:40:02 +0000</pubDate>
+      <guid>https://emtwo.info/articles/data_crawling/</guid>
+      <description>&lt;p&gt;&lt;img alt=&#34;Alt Text&#34; loading=&#34;lazy&#34; src=&#34;https://emtwo.info/images/4.jpg&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;1-a-brief-overview-of-crawling-and-its-role&#34;&gt;1. A Brief Overview of Crawling and Its Role&lt;/h2&gt;
+&lt;p&gt;Crawling refers to the automated process of navigating through web pages to extract targeted data. This data can include product details, prices, descriptions, images, user reviews, and even hidden API endpoints. The ultimate goal is to programmatically access structured data that would otherwise be visible only through manual interaction with a browser.&lt;/p&gt;
+&lt;p&gt;In real-world data pipelines, crawling is just one stage. It is typically followed by scraping (data extraction), parsing (data interpretation), and eventually storage or usage. For startups, crawlers play a vital role—especially in building platforms for price comparison, market intelligence, or competitive analysis.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Reflected XSS via Magic Words</title>
       <link>https://emtwo.info/articles/reflected_xss/</link>
