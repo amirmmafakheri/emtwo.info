@@ -43,7 +43,7 @@
       <link>https://emtwo.info/about/</link>
       <pubDate>Sat, 15 Mar 2025 13:45:29 +0000</pubDate>
       <guid>https://emtwo.info/about/</guid>
-      <description>&lt;p&gt;&lt;img alt=&#34;Alt Text&#34; loading=&#34;lazy&#34; src=&#34;https://emtwo.info/images/1.jpg&#34;&gt;&lt;/p&gt;
+      <description>&lt;img src=&#34;https://emtwo.info/images/1.jpg&#34; alt=&#34;Profile&#34; style=&#34;width:200px;height:200px;object-fit:cover;border-radius:50%;display:block;margin:0 auto;border:3px solid #fff;box-shadow:0 4px 8px rgba(0,0,0,0.2);&#34;&gt;
 &lt;p&gt;I am a passionate &lt;strong&gt;Cyber Security Researcher&lt;/strong&gt; with a strong focus on &lt;strong&gt;penetration testing, threat intelligence, and security automation&lt;/strong&gt;. My expertise lies in analyzing vulnerabilities, securing applications, and developing advanced security tools.&lt;/p&gt;
 &lt;h2 id=&#34;-research-areas&#34;&gt;🔍 Research Areas&lt;/h2&gt;
 &lt;ul&gt;

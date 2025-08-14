@@ -2,6 +2,8 @@ baseURL = 'https://emtwo.info'
 languageCode = 'en-us'
 title = 'eMtwo Security Tips'
 theme = 'hugo-PaperMod'
+[markup.goldmark.renderer]
+unsafe = true
 
 
 [menu]

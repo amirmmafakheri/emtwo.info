@@ -4,7 +4,8 @@ draft = false
 title = 'About'
 +++
 
-![Alt Text](/images/1.jpg)
+<img src="/images/1.jpg" alt="Profile" style="width:200px;height:200px;object-fit:cover;border-radius:50%;display:block;margin:0 auto;border:3px solid #fff;box-shadow:0 4px 8px rgba(0,0,0,0.2);">
+
 
 I am a passionate **Cyber Security Researcher** with a strong focus on **penetration testing, threat intelligence, and security automation**. My expertise lies in analyzing vulnerabilities, securing applications, and developing advanced security tools.
 
