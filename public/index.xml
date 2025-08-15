@@ -44,36 +44,36 @@
       <pubDate>Sat, 15 Mar 2025 13:45:29 +0000</pubDate>
       <guid>https://emtwo.info/about/</guid>
       <description>&lt;img src=&#34;https://emtwo.info/images/1.jpg&#34; alt=&#34;Profile&#34; style=&#34;width:200px;height:200px;object-fit:cover;border-radius:50%;display:block;margin:0 auto;border:3px solid #fff;box-shadow:0 4px 8px rgba(0,0,0,0.2);&#34;&gt;
-&lt;p&gt;I am a passionate &lt;strong&gt;Cyber Security Researcher&lt;/strong&gt; with a strong focus on &lt;strong&gt;penetration testing, threat intelligence, and security automation&lt;/strong&gt;. My expertise lies in analyzing vulnerabilities, securing applications, and developing advanced security tools.&lt;/p&gt;
-&lt;h2 id=&#34;-research-areas&#34;&gt;🔍 Research Areas&lt;/h2&gt;
+&lt;h2 style=&#34;text-align:center; margin-top:15px;&#34;&gt;Amirmahdi Mafakheri😎&lt;/h2&gt;
+I am a **Cyber Security Researcher** with hands-on experience in **penetration testing, vulnerability research, and malware analysis**.  
+My focus is on finding, exploiting, and reporting security flaws in real-world systems, as well as building tools that automate and enhance the security testing process.
+&lt;h2 id=&#34;-research-focus&#34;&gt;🔍 Research Focus&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;Ethical Hacking &amp;amp; Penetration Testing&lt;/li&gt;
-&lt;li&gt;Web and Network Security&lt;/li&gt;
-&lt;li&gt;Threat Hunting &amp;amp; Intelligence Analysis&lt;/li&gt;
-&lt;li&gt;Reverse Engineering &amp;amp; Android Malware Analysis(in Studing)&lt;/li&gt;
-&lt;li&gt;Security Automation &amp;amp; Scripting&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Bug Bounty &amp;amp; Vulnerability Discovery&lt;/strong&gt; — Proven record of identifying and reporting verified vulnerabilities in VDP programs.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Web &amp;amp; Network Security&lt;/strong&gt; — Deep understanding of OWASP Top 10, misconfiguration exploitation, and secure coding principles.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Android Malware Analysis&lt;/strong&gt; — Static and dynamic analysis of malicious applications, behavior mapping, and reverse engineering.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Reverse Engineering&lt;/strong&gt; — Analysis of binaries, protocol reversing, and tool-assisted debugging.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Security Automation&lt;/strong&gt; — Custom Python-based frameworks and reconnaissance tools for large-scale testing.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;-skills--tools&#34;&gt;🚀 Skills &amp;amp; Tools&lt;/h2&gt;
+&lt;h2 id=&#34;-skills--tooling&#34;&gt;🛠 Skills &amp;amp; Tooling&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Programming:&lt;/strong&gt; Python, Bash&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Security Tools:&lt;/strong&gt; Diverman, Tamperman, Tagman, Ba2ckman, Extractor, Backupx, &amp;hellip;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Cloud Security:&lt;/strong&gt; AWS, Azure Security Best Practices&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;OSINT:&lt;/strong&gt; Shodan, Maltego, Google Dorking&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Programming &amp;amp; Scripting:&lt;/strong&gt; Python, Bash, (learning C for low-level security work)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Custom Security Tools:&lt;/strong&gt; Recon automation, vulnerability extractors, backup discovery, tamper testing, and data exfiltration utilities.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;OSINT &amp;amp; Threat Intelligence:&lt;/strong&gt; Shodan, Maltego, Google Dorking, and advanced search operators.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;-certifications&#34;&gt;📜 Certifications&lt;/h2&gt;
+&lt;h2 id=&#34;-professional-knowledge&#34;&gt;📜 Professional Knowledge&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;OSCP (Offensive Security Certified Professional)&lt;/li&gt;
-&lt;li&gt;CEH (Certified Ethical Hacker)&lt;/li&gt;
-&lt;li&gt;CISSP (Certified Information Systems Security Professional)&lt;/li&gt;
-&lt;li&gt;OWASP TOP 10 (Open Worldwide Application Security Project)&lt;/li&gt;
-&lt;li&gt;Bug Hunting (How Can Find Web Application Vulnerability and Make Sure Security)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Network+&lt;/strong&gt; and &lt;strong&gt;LPIC-1/2&lt;/strong&gt; certified knowledge in networking and Linux administration.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;OWASP Top 10&lt;/strong&gt; expertise for web vulnerability assessment.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Bug Bounty Methodologies&lt;/strong&gt; for structured vulnerability hunting.&lt;/li&gt;
+&lt;li&gt;Practical experience with &lt;strong&gt;threat hunting&lt;/strong&gt;, &lt;strong&gt;forensic analysis&lt;/strong&gt;, and &lt;strong&gt;incident response&lt;/strong&gt; workflows.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;-get-in-touch&#34;&gt;📬 Get in Touch&lt;/h2&gt;
+&lt;h2 id=&#34;-contact&#34;&gt;📬 Contact&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Email:&lt;/strong&gt; &lt;a href=&#34;mailto:amirmmafakheri@gmail.com&#34;&gt;amirmmafakheri@gmail.com&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;LinkedIn:&lt;/strong&gt; &lt;a href=&#34;https://www.linkedin.com/in/amirmmafakheri/&#34;&gt;https://www.linkedin.com/in/amirmmafakheri/&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;GitHub:&lt;/strong&gt; &lt;a href=&#34;https://github.com/amirmmafakheri&#34;&gt;https://github.com/amirmmafakheri&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Twitter:&lt;/strong&gt; &lt;a href=&#34;https://x.com/amirmmafakheri&#34;&gt;@amirmmafakheri&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Twitter/X:&lt;/strong&gt; &lt;a href=&#34;https://x.com/amirmmafakheri&#34;&gt;@amirmmafakheri&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;© 2025&lt;/p&gt;</description>
     </item>
