@@ -96,4 +96,4 @@ This detailed report highlights the importance of thorough reconnaissance, preci
 
 ---
 
-I hope this report has been useful to you.
+I hope this report has been useful to you.😎
