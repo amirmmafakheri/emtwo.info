@@ -1,11 +1,10 @@
 +++
 date = '2025-03-24T02:40:02Z'
 draft = false
+images = ['https://emtwo.info/images/2.jpg']
 title = 'Reflected XSS via Magic Words'
 +++
-
-![Alt Text](/images/2.jpg)
-
+![Alt Text](https://emtwo.info/images/2.jpg)
 ### Overview
 This report details the discovery and exploitation of a XSS vulnerability identified in the Vulnerability Disclosure Program (VDP) of a target website.
 
