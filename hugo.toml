@@ -30,3 +30,6 @@ unsafe = true
     name = "Download"
     url = "/download/"
     weight = 4
+
+[params]
+  showReadingTime = true
