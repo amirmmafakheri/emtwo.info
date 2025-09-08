@@ -33,8 +33,9 @@ My focus is on finding, exploiting, and reporting security flaws in real-world s
 ## 📬 Contact
 
 - **Email:** [amirmmafakheri@gmail.com](mailto:amirmmafakheri@gmail.com)  
-- **LinkedIn:** [https://www.linkedin.com/in/amirmmafakheri/](https://www.linkedin.com/in/amirmmafakheri/)  
-- **GitHub:** [https://github.com/amirmmafakheri](https://github.com/amirmmafakheri)  
-- **Twitter/X:** [@amirmmafakheri](https://x.com/amirmmafakheri)  
+- [LinkedIn](https://www.linkedin.com/in/amirmmafakheri/)  
+- [Github](https://github.com/amirmmafakheri)  
+- [Twitter/X](https://x.com/amirmmafakheri)  
+- [Chess](https://www.chess.com/member/amirmmafakheri)
 
 &copy; 2025
