@@ -28,6 +28,14 @@ All of this, however, runs on a single `hardware` platform: the body. A sore kne
 After shock or failure, we enter `recovery mode`, where the priority is stability: reduce load, restore from `backups` (rest, therapy, community), and only then resume full services. Skipping recovery risks silent corruption. In depletion or depression we sometimes run `safe mode`—only critical drivers, no heavy apps. It’s not laziness; it’s graceful degradation that preserves life and buys time to repair.
 
 Moments of peak performance resemble `overclocking`. Just like exercising in `Zone 5` during sports, it can multiply output and unlock extraordinary states of performance. It is a moment of intensified capability, where energy and focus surge far beyond the ordinary.
+<iframe width="560" height="315"
+src="https://www.youtube.com/embed/FQTPAvvnxfo?start=1319"
+title="YouTube video player"
+frameborder="0"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+allowfullscreen>
+</iframe>
+
 ![Alt Text](/images/8.jpg)
 Learning, therapy, and practice are `updates`: `firmware patches` in the form of belief revisions or trauma processing, and `OS updates` as new skills, habits, or models of the world. Like security advisories, they remind us to retire vulnerable beliefs and patch known exploits.
 
