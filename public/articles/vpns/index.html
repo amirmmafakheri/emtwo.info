@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Technical Analysis of Fake VPN Applications Abuse on Android | eMtwo Security Tips</title>
+<meta name="keywords" content="">
+<meta name="description" content="
+RATs, Permission Abuse, and Backdoor Persistence
+Introduction
+During periods of network instability or censorship, VPN usage on Android devices increases dramatically. This surge creates an ideal environment for mass-target attacks, where adversaries distribute malicious applications at scale instead of targeting specific individuals.
+This analysis does not focus on VPN protocols themselves (such as V2Ray, VLESS, or Trojan), but rather on malicious Android VPN clients that are distributed either as fake VPN apps or as “mandatory” clients bundled with configuration files.">
+<meta name="author" content="">
+<link rel="canonical" href="https://emtwo.info/articles/vpns/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.c6ed87f96f64d987511631a1fd5ba66340ad7728d7628e5670f3a44ab04e967e.css" integrity="sha256-xu2H&#43;W9k2YdRFjGh/VumY0CtdyjXYo5WcPOkSrBOln4=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://emtwo.info/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://emtwo.info/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://emtwo.info/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://emtwo.info/apple-touch-icon.png">
+<link rel="mask-icon" href="https://emtwo.info/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://emtwo.info/articles/vpns/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:url" content="https://emtwo.info/articles/vpns/">
+  <meta property="og:site_name" content="eMtwo Security Tips">
+  <meta property="og:title" content="Technical Analysis of Fake VPN Applications Abuse on Android">
+  <meta property="og:description" content=" RATs, Permission Abuse, and Backdoor Persistence Introduction During periods of network instability or censorship, VPN usage on Android devices increases dramatically. This surge creates an ideal environment for mass-target attacks, where adversaries distribute malicious applications at scale instead of targeting specific individuals.
+This analysis does not focus on VPN protocols themselves (such as V2Ray, VLESS, or Trojan), but rather on malicious Android VPN clients that are distributed either as fake VPN apps or as “mandatory” clients bundled with configuration files.">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="articles">
+    <meta property="article:published_time" content="2026-01-28T02:40:02+00:00">
+    <meta property="article:modified_time" content="2026-01-28T02:40:02+00:00">
+    <meta property="og:image" content="https://emtwo.info/images/13.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://emtwo.info/images/13.jpg">
+<meta name="twitter:title" content="Technical Analysis of Fake VPN Applications Abuse on Android">
+<meta name="twitter:description" content="
+RATs, Permission Abuse, and Backdoor Persistence
+Introduction
+During periods of network instability or censorship, VPN usage on Android devices increases dramatically. This surge creates an ideal environment for mass-target attacks, where adversaries distribute malicious applications at scale instead of targeting specific individuals.
+This analysis does not focus on VPN protocols themselves (such as V2Ray, VLESS, or Trojan), but rather on malicious Android VPN clients that are distributed either as fake VPN apps or as “mandatory” clients bundled with configuration files.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Articles",
+      "item": "https://emtwo.info/articles/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Technical Analysis of Fake VPN Applications Abuse on Android",
+      "item": "https://emtwo.info/articles/vpns/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Technical Analysis of Fake VPN Applications Abuse on Android",
+  "name": "Technical Analysis of Fake VPN Applications Abuse on Android",
+  "description": " RATs, Permission Abuse, and Backdoor Persistence Introduction During periods of network instability or censorship, VPN usage on Android devices increases dramatically. This surge creates an ideal environment for mass-target attacks, where adversaries distribute malicious applications at scale instead of targeting specific individuals.\nThis analysis does not focus on VPN protocols themselves (such as V2Ray, VLESS, or Trojan), but rather on malicious Android VPN clients that are distributed either as fake VPN apps or as “mandatory” clients bundled with configuration files.\n",
+  "keywords": [
+    
+  ],
+  "articleBody": " RATs, Permission Abuse, and Backdoor Persistence Introduction During periods of network instability or censorship, VPN usage on Android devices increases dramatically. This surge creates an ideal environment for mass-target attacks, where adversaries distribute malicious applications at scale instead of targeting specific individuals.\nThis analysis does not focus on VPN protocols themselves (such as V2Ray, VLESS, or Trojan), but rather on malicious Android VPN clients that are distributed either as fake VPN apps or as “mandatory” clients bundled with configuration files.\nThese applications function as real VPNs while simultaneously acting as RATs (Remote Access Trojans).\nThreat Model (Summary) Target: General Android users\nAttacker Goals:\nPersistent access to infected devices Data exfiltration (Credentials, OTPs, PII) Account Takeover (ATO) Attack Vector:\nFake or repackaged VPN applications Forced installation of a “custom VPN client” alongside configuration files Scale: Mass infection (non-targeted)\nKey Distinction: V2Ray Configuration vs. Malicious Client V2Ray Configuration Files V2Ray configurations (vmess, vless, trojan, etc.) only contain:\nServer address Port UUID / key Transport and routing settings Important facts:\nConfiguration files cannot execute code They are not inherently malicious At worst, a VPN operator can observe metadata, not encrypted payloads 👉 The risk does not originate from the configuration file, but from the client application parsing it.\nHigh-Level Structure of Malicious VPN Applications These malicious apps typically fall into one of the following categories:\nRepacked open-source VPN clients (e.g., modified versions of v2rayNG)\nNew applications with:\nFamiliar UI Misleading names and icons Malicious code bound to the app lifecycle In all cases:\nThe VPN functionality works correctly User suspicion remains low Malicious code runs in parallel with legitimate VPN logic Persistence Mechanisms on Android Malicious VPN apps often combine multiple persistence techniques:\nBackground services\nAbuse of:\nFOREGROUND_SERVICE RECEIVE_BOOT_COMPLETED Preventing process termination via:\nBattery optimization bypass AlarmManager / JobScheduler In some cases, Accessibility Service abuse\nResult: Even when the VPN is disconnected, the backdoor remains active.\nPermission Abuse: A Gradual Attack Strategy A critical characteristic of these RATs is progressive permission requests.\nWhy not request everything at once? Bulk permission requests trigger user suspicion Android users suffer from “permission fatigue” Typical Permission Escalation Pattern: First launch → low-risk permissions (Network, Notifications) Subsequent usage → Storage, Contacts Later stages → SMS, Accessibility Because:\nThe user urgently needs connectivity The app is perceived as “just a VPN” The app behavior appears normal ➡ Permissions are frequently approved without scrutiny.\nSMS Permission: The Critical Point of Failure Granting SMS access enables:\nReading OTP messages\nBypassing SMS-based 2FA\nFull account takeover for:\nBanking apps Messaging platforms Email accounts Key Insight: This attack is not Android-version dependent. It remains effective on Android 15 and 16.\nSecurity patches do not mitigate permission abuse by user consent.\nData Collected by the RAT Depending on granted permissions, collected data may include:\nSMS content (OTPs, banking alerts) Contacts Device information (IMEI, model, Android ID) Installed app list Clipboard contents Keystrokes (via Accessibility) Screen content (in advanced cases) Data Exfiltration Behavior Often triggered during VPN connection Or sent at randomized intervals to evade detection Traffic is hidden inside the VPN tunnel Why Users Rarely Notice Several factors contribute to stealth:\nThe VPN genuinely works UI is familiar and trusted No obvious battery drain Malicious traffic is tunneled Users lack a personal threat model This is a human-factor attack, not an OS-level failure.\nPractical Technical Recommendations Use only:\nOpen-source VPN clients Apps downloaded from Google Play Avoid applications that:\nForce proprietary clients with configs Always review permissions:\nVPN ≠ SMS VPN ≠ Contacts Do not trust:\n“Auto-update config” claims Closed-source custom VPN clients Conclusion The core problem in Android security today is not:\nBroken cryptography Weak VPN protocols It is the user trust model.\nAs long as:\nInstalling unknown apps is seen as an urgent solution Permissions are granted blindly RAT-based fake VPN campaigns will continue to succeed.\n",
+  "wordCount" : "634",
+  "inLanguage": "en",
+  "image":"https://emtwo.info/images/13.jpg","datePublished": "2026-01-28T02:40:02Z",
+  "dateModified": "2026-01-28T02:40:02Z",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://emtwo.info/articles/vpns/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "eMtwo Security Tips",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://emtwo.info/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://emtwo.info/" accesskey="h" title="eMtwo Security Tips (Alt + H)">eMtwo Security Tips</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://emtwo.info/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://emtwo.info/articles/" title="Articles">
+                    <span>Articles</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://emtwo.info/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://emtwo.info/download/" title="Download">
+                    <span>Download</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Technical Analysis of Fake VPN Applications Abuse on Android
+    </h1>
+    <div class="post-meta"><span title='2026-01-28 02:40:02 +0000 UTC'>January 28, 2026</span>&nbsp;·&nbsp;3 min
+
+</div>
+  </header> 
+<figure class="entry-cover">
+        <img loading="eager" src="https://emtwo.info/images/13.jpg" alt="">
+        
+</figure>
+  <div class="post-content"><hr>
+<h3 id="rats-permission-abuse-and-backdoor-persistence">RATs, Permission Abuse, and Backdoor Persistence<a hidden class="anchor" aria-hidden="true" href="#rats-permission-abuse-and-backdoor-persistence">#</a></h3>
+<h2 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h2>
+<p>During periods of network instability or censorship, VPN usage on Android devices increases dramatically. This surge creates an ideal environment for <strong>mass-target attacks</strong>, where adversaries distribute malicious applications at scale instead of targeting specific individuals.</p>
+<p>This analysis does <strong>not</strong> focus on VPN protocols themselves (such as V2Ray, VLESS, or Trojan), but rather on <strong>malicious Android VPN clients</strong> that are distributed either as fake VPN apps or as “mandatory” clients bundled with configuration files.</p>
+<p>These applications function as real VPNs while simultaneously acting as <strong>RATs (Remote Access Trojans)</strong>.</p>
+<hr>
+<h2 id="threat-model-summary">Threat Model (Summary)<a hidden class="anchor" aria-hidden="true" href="#threat-model-summary">#</a></h2>
+<p><strong>Target:</strong>
+General Android users</p>
+<p><strong>Attacker Goals:</strong></p>
+<ul>
+<li>Persistent access to infected devices</li>
+<li>Data exfiltration (Credentials, OTPs, PII)</li>
+<li>Account Takeover (ATO)</li>
+</ul>
+<p><strong>Attack Vector:</strong></p>
+<ul>
+<li>Fake or repackaged VPN applications</li>
+<li>Forced installation of a “custom VPN client” alongside configuration files</li>
+</ul>
+<p><strong>Scale:</strong>
+Mass infection (non-targeted)</p>
+<hr>
+<h2 id="key-distinction-v2ray-configuration-vs-malicious-client">Key Distinction: V2Ray Configuration vs. Malicious Client<a hidden class="anchor" aria-hidden="true" href="#key-distinction-v2ray-configuration-vs-malicious-client">#</a></h2>
+<h3 id="v2ray-configuration-files">V2Ray Configuration Files<a hidden class="anchor" aria-hidden="true" href="#v2ray-configuration-files">#</a></h3>
+<p>V2Ray configurations (vmess, vless, trojan, etc.) only contain:</p>
+<ul>
+<li>Server address</li>
+<li>Port</li>
+<li>UUID / key</li>
+<li>Transport and routing settings</li>
+</ul>
+<p><strong>Important facts:</strong></p>
+<ul>
+<li>Configuration files cannot execute code</li>
+<li>They are not inherently malicious</li>
+<li>At worst, a VPN operator can observe <strong>metadata</strong>, not encrypted payloads</li>
+</ul>
+<p>👉 <strong>The risk does not originate from the configuration file, but from the client application parsing it.</strong></p>
+<hr>
+<h2 id="high-level-structure-of-malicious-vpn-applications">High-Level Structure of Malicious VPN Applications<a hidden class="anchor" aria-hidden="true" href="#high-level-structure-of-malicious-vpn-applications">#</a></h2>
+<p>These malicious apps typically fall into one of the following categories:</p>
+<ol>
+<li>
+<p><strong>Repacked open-source VPN clients</strong>
+(e.g., modified versions of v2rayNG)</p>
+</li>
+<li>
+<p><strong>New applications with:</strong></p>
+<ul>
+<li>Familiar UI</li>
+<li>Misleading names and icons</li>
+<li>Malicious code bound to the app lifecycle</li>
+</ul>
+</li>
+</ol>
+<p>In all cases:</p>
+<ul>
+<li>The VPN functionality works correctly</li>
+<li>User suspicion remains low</li>
+<li>Malicious code runs in parallel with legitimate VPN logic</li>
+</ul>
+<hr>
+<h2 id="persistence-mechanisms-on-android">Persistence Mechanisms on Android<a hidden class="anchor" aria-hidden="true" href="#persistence-mechanisms-on-android">#</a></h2>
+<p>Malicious VPN apps often combine multiple persistence techniques:</p>
+<ul>
+<li>
+<p>Background services</p>
+</li>
+<li>
+<p>Abuse of:</p>
+<ul>
+<li><code>FOREGROUND_SERVICE</code></li>
+<li><code>RECEIVE_BOOT_COMPLETED</code></li>
+</ul>
+</li>
+<li>
+<p>Preventing process termination via:</p>
+<ul>
+<li>Battery optimization bypass</li>
+<li><code>AlarmManager</code> / <code>JobScheduler</code></li>
+</ul>
+</li>
+<li>
+<p>In some cases, <strong>Accessibility Service abuse</strong></p>
+</li>
+</ul>
+<p><strong>Result:</strong>
+Even when the VPN is disconnected, the backdoor remains active.</p>
+<hr>
+<h2 id="permission-abuse-a-gradual-attack-strategy">Permission Abuse: A Gradual Attack Strategy<a hidden class="anchor" aria-hidden="true" href="#permission-abuse-a-gradual-attack-strategy">#</a></h2>
+<p>A critical characteristic of these RATs is <strong>progressive permission requests</strong>.</p>
+<h3 id="why-not-request-everything-at-once">Why not request everything at once?<a hidden class="anchor" aria-hidden="true" href="#why-not-request-everything-at-once">#</a></h3>
+<ul>
+<li>Bulk permission requests trigger user suspicion</li>
+<li>Android users suffer from “permission fatigue”</li>
+</ul>
+<h3 id="typical-permission-escalation-pattern">Typical Permission Escalation Pattern:<a hidden class="anchor" aria-hidden="true" href="#typical-permission-escalation-pattern">#</a></h3>
+<ol>
+<li>First launch → low-risk permissions
+(Network, Notifications)</li>
+<li>Subsequent usage → Storage, Contacts</li>
+<li>Later stages → SMS, Accessibility</li>
+</ol>
+<p>Because:</p>
+<ul>
+<li>The user urgently needs connectivity</li>
+<li>The app is perceived as “just a VPN”</li>
+<li>The app behavior appears normal</li>
+</ul>
+<p>➡ Permissions are frequently approved without scrutiny.</p>
+<hr>
+<h2 id="sms-permission-the-critical-point-of-failure">SMS Permission: The Critical Point of Failure<a hidden class="anchor" aria-hidden="true" href="#sms-permission-the-critical-point-of-failure">#</a></h2>
+<p>Granting SMS access enables:</p>
+<ul>
+<li>
+<p>Reading OTP messages</p>
+</li>
+<li>
+<p>Bypassing SMS-based 2FA</p>
+</li>
+<li>
+<p>Full account takeover for:</p>
+<ul>
+<li>Banking apps</li>
+<li>Messaging platforms</li>
+<li>Email accounts</li>
+</ul>
+</li>
+</ul>
+<p><strong>Key Insight:</strong>
+This attack is <strong>not Android-version dependent</strong>.
+It remains effective on <strong>Android 15 and 16</strong>.</p>
+<p>Security patches do <strong>not</strong> mitigate <strong>permission abuse by user consent</strong>.</p>
+<hr>
+<h2 id="data-collected-by-the-rat">Data Collected by the RAT<a hidden class="anchor" aria-hidden="true" href="#data-collected-by-the-rat">#</a></h2>
+<p>Depending on granted permissions, collected data may include:</p>
+<ul>
+<li>SMS content (OTPs, banking alerts)</li>
+<li>Contacts</li>
+<li>Device information (IMEI, model, Android ID)</li>
+<li>Installed app list</li>
+<li>Clipboard contents</li>
+<li>Keystrokes (via Accessibility)</li>
+<li>Screen content (in advanced cases)</li>
+</ul>
+<h3 id="data-exfiltration-behavior">Data Exfiltration Behavior<a hidden class="anchor" aria-hidden="true" href="#data-exfiltration-behavior">#</a></h3>
+<ul>
+<li>Often triggered during VPN connection</li>
+<li>Or sent at randomized intervals to evade detection</li>
+<li>Traffic is hidden inside the VPN tunnel</li>
+</ul>
+<hr>
+<h2 id="why-users-rarely-notice">Why Users Rarely Notice<a hidden class="anchor" aria-hidden="true" href="#why-users-rarely-notice">#</a></h2>
+<p>Several factors contribute to stealth:</p>
+<ul>
+<li>The VPN genuinely works</li>
+<li>UI is familiar and trusted</li>
+<li>No obvious battery drain</li>
+<li>Malicious traffic is tunneled</li>
+<li>Users lack a personal threat model</li>
+</ul>
+<p>This is a <strong>human-factor attack</strong>, not an OS-level failure.</p>
+<hr>
+<h2 id="practical-technical-recommendations">Practical Technical Recommendations<a hidden class="anchor" aria-hidden="true" href="#practical-technical-recommendations">#</a></h2>
+<ul>
+<li>
+<p>Use <strong>only</strong>:</p>
+<ul>
+<li>Open-source VPN clients</li>
+<li>Apps downloaded from Google Play</li>
+</ul>
+</li>
+<li>
+<p>Avoid applications that:</p>
+<ul>
+<li>Force proprietary clients with configs</li>
+</ul>
+</li>
+<li>
+<p>Always review permissions:</p>
+<ul>
+<li>VPN ≠ SMS</li>
+<li>VPN ≠ Contacts</li>
+</ul>
+</li>
+<li>
+<p>Do not trust:</p>
+<ul>
+<li>“Auto-update config” claims</li>
+<li>Closed-source custom VPN clients</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="conclusion">Conclusion<a hidden class="anchor" aria-hidden="true" href="#conclusion">#</a></h2>
+<p>The core problem in Android security today is <strong>not</strong>:</p>
+<ul>
+<li>Broken cryptography</li>
+<li>Weak VPN protocols</li>
+</ul>
+<p>It is the <strong>user trust model</strong>.</p>
+<p>As long as:</p>
+<ul>
+<li>Installing unknown apps is seen as an urgent solution</li>
+<li>Permissions are granted blindly</li>
+</ul>
+<p><strong>RAT-based fake VPN campaigns will continue to succeed.</strong></p>
+<hr>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="https://emtwo.info/">eMtwo Security Tips</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
