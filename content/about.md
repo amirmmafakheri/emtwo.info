@@ -37,5 +37,6 @@ My focus is on finding, exploiting, and reporting security flaws in real-world s
 - [Github](https://github.com/amirmmafakheri)  
 - [Twitter/X](https://x.com/amirmmafakheri)  
 - [Chess](https://www.chess.com/member/amirmmafakheri)
+- [YouTube](https://www.youtube.com/@amirmmafakheri)
 
-&copy; 2025
+&copy; 2026
