@@ -3,7 +3,7 @@ date = '2025-11-23T02:40:02Z'
 draft = false
 title = 'Survivorship Bias: The Beautiful Illusion of Success'
 [cover]
-image = "https://emtwo.info/images/11.jpg"
+image = "https://amirmmafakheri.github.io/emtwo.info/images/11.jpg"
 alt = ""
 caption = ""
 +++
@@ -30,7 +30,7 @@ The relationships that began and failed.
 The people who bent under pressure but were never seen anywhere.
 
 **Social Media: The Premium Trash Products of Facebook**
-![Alt Text](/images/12.jpg)
+![Alt Text](/emtwo.info/images/12.jpg)
 On Instagram and the other trashy apps made by Facebook—these “fast-food luxury lives”—this bias gets multiplied.
 We only see pictures of smiles, travel, parties, and joy.
 But no one posts pictures of anxiety, poverty, heartbreak, or nights spent crying.

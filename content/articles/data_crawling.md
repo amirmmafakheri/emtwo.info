@@ -3,7 +3,7 @@ date = '2025-08-03T02:40:02Z'
 draft = false
 title = '🕷️ One Year of Data Engineering in the Field: A Practical Journey with a Startup Crawler Team'
 [cover]
-image = "https://emtwo.info/images/4.jpg"
+image = "https://amirmmafakheri.github.io/emtwo.info/images/4.jpg"
 alt = ""
 caption = ""
 +++

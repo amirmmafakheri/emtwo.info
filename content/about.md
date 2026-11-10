@@ -4,7 +4,7 @@ draft = false
 title = 'About'
 +++
 
-<img src="/images/1.jpg" alt="Profile" style="width:200px;height:200px;object-fit:cover;border-radius:50%;display:block;margin:0 auto;border:3px solid #fff;box-shadow:0 4px 8px rgba(0,0,0,0.2);">
+<img src="/emtwo.info/images/1.jpg" alt="Profile" style="width:200px;height:200px;object-fit:cover;border-radius:50%;display:block;margin:0 auto;border:3px solid #fff;box-shadow:0 4px 8px rgba(0,0,0,0.2);">
 <h2 style="text-align:center; margin-top:15px;">Amirmahdi Mafakheri</h2>
 I am a Cyber Security Researcher with hands-on experience in penetration testing, vulnerability research, and malware analysis.  
 My focus is on finding, exploiting, and reporting security flaws in real-world systems, as well as building tools that automate and enhance the security testing process.

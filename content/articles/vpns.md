@@ -3,7 +3,7 @@ date = '2026-01-28T02:40:02Z'
 draft = false
 title = 'Technical Analysis of Fake VPN Applications Abuse on Android'
 [cover]
-image = "https://emtwo.info/images/13.jpg"
+image = "https://amirmmafakheri.github.io/emtwo.info/images/13.jpg"
 alt = ""
 caption = ""
 +++

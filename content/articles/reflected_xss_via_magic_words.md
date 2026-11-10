@@ -3,7 +3,7 @@ date = '2025-03-24T02:40:02Z'
 draft = false
 title = 'Reflected XSS via Magic Words'
 [cover]
-image = "https://emtwo.info/images/2.jpg"
+image = "https://amirmmafakheri.github.io/emtwo.info/images/2.jpg"
 alt = ""
 caption = ""
 +++
@@ -87,7 +87,7 @@ URL:
 https://commercial.target.com/path/path/path/?searchKey="><script>alert(origin)</script>
 ```
 
-![Alt Text](/images/3.jpg)
+![Alt Text](/emtwo.info/images/3.jpg)
 
 ### Impact
 The discovered vulnerability enabled an attacker to execute arbitrary JavaScript in the victim’s browser, facilitating cookie theft and unauthorized access to user accounts.

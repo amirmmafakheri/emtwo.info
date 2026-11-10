@@ -3,7 +3,7 @@ date = '2025-09-07'
 draft = false
 title = 'The Human Bootloader: How We Switch Personalities Without a Restart'
 [cover]
-image = "https://emtwo.info/images/5.jpg"
+image = "https://amirmmafakheri.github.io/emtwo.info/images/5.jpg"
 alt = ""
 caption = ""
 +++
@@ -19,7 +19,7 @@ The `bootloader` then decides what to launch. In people, that means selecting a 
 Sometimes we spin up `virtual machines (VMs)`—constrained, situational identities that keep the rest of us sandboxed. They’re useful for survival, professional performance, or social signaling, but they *aren’t* the whole system. VMs help us isolate risk, test new behaviors, and maintain uptime when the primary OS is fragile. The hazard is mistaking the VM for the host: long‑term, that feels hollow.
 
 To truly govern ourselves, we need `root access`—conscious authority over what runs and why. With root, we can inspect background `daemons` (habits), kill rogue `processes` (compulsions), and decide deliberately which persona to execute. Without root, we’re more vulnerable to external `shells`—others issuing commands on our system.
-![Alt Text](/images/6_1.jpg)
+![Alt Text](/emtwo.info/images/6_1.jpg)
 
 Humans can also `hot‑swap` modes without downtime. We jump from focused work to empathy, from gravity to play, and back again—ideally without losing data such as values and integrity. Practiced hot‑swap is the hallmark of adaptive intelligence.
 
@@ -36,13 +36,13 @@ allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; pic
 allowfullscreen>
 </iframe>
 
-![Alt Text](/images/8.jpg)
+![Alt Text](/emtwo.info/images/8.jpg)
 Learning, therapy, and practice are `updates`: `firmware patches` in the form of belief revisions or trauma processing, and `OS updates` as new skills, habits, or models of the world. Like security advisories, they remind us to retire vulnerable beliefs and patch known exploits.
 
 But sometimes the system hits `kernel panic`—the core coordination fails and nothing mounts. That’s the freeze or collapse when no module can boot. The fix is not to try harder, but to power down safely, diagnose, and seek expert help.
 
 We also need a `threat model`. `Malware` in human terms is emotional manipulation; `SQL injections` are guilt trips or gaslighting that exploit unvalidated inputs; `bad sectors` are traumatic memory regions that cannot always be repaired but can be quarantined so they don’t crash the filesystem. Our `firewalls` and `IDS` are boundaries, consent practices, and awareness to detect and block hostile traffic.
-![Alt Text](/images/7.jpg)
+![Alt Text](/emtwo.info/images/7.jpg)
 
 Another hidden hazard is the `memory leak`: unfinished loops, nagging tasks, and unmade decisions that steadily consume working `RAM`, leaving too little for creative compute. Closing loops—by deciding, delegating, writing down, or deleting—is the only way to reclaim memory.
 
@@ -51,4 +51,4 @@ In the end, humans are **self‑rewriting systems**. We can modify the `bootload
 ## Further Reading
 
 If you are interested in exploring the idea of multiple selves and inner contradictions from a literary perspective, Hermann Hesse’s Steppenwolf is a powerful recommendation. Through its narrative, it illustrates the fragmented nature of identity and the shifts between different versions of the self—an artistic parallel to the computing metaphors discussed here.
-![Alt Text](/images/10.jpg)
+![Alt Text](/emtwo.info/images/10.jpg)
