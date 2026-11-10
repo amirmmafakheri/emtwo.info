@@ -1,60 +1,47 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Articles on eMtwo Security Tips</title>
-    <link>https://emtwo.info/articles/</link>
+    <link>https://amirmmafakheri.github.io/emtwo.info/articles/</link>
     <description>Recent content in Articles on eMtwo Security Tips</description>
-    <generator>Hugo -- 0.149.0</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 28 Jan 2026 02:40:02 +0000</lastBuildDate>
-    <atom:link href="https://emtwo.info/articles/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://amirmmafakheri.github.io/emtwo.info/articles/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Technical Analysis of Fake VPN Applications Abuse on Android</title>
-      <link>https://emtwo.info/articles/vpns/</link>
+      <link>https://amirmmafakheri.github.io/emtwo.info/articles/vpns/</link>
       <pubDate>Wed, 28 Jan 2026 02:40:02 +0000</pubDate>
-      <guid>https://emtwo.info/articles/vpns/</guid>
-      <description>&lt;hr&gt;
-&lt;h3 id=&#34;rats-permission-abuse-and-backdoor-persistence&#34;&gt;RATs, Permission Abuse, and Backdoor Persistence&lt;/h3&gt;
-&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;During periods of network instability or censorship, VPN usage on Android devices increases dramatically. This surge creates an ideal environment for &lt;strong&gt;mass-target attacks&lt;/strong&gt;, where adversaries distribute malicious applications at scale instead of targeting specific individuals.&lt;/p&gt;
-&lt;p&gt;This analysis does &lt;strong&gt;not&lt;/strong&gt; focus on VPN protocols themselves (such as V2Ray, VLESS, or Trojan), but rather on &lt;strong&gt;malicious Android VPN clients&lt;/strong&gt; that are distributed either as fake VPN apps or as “mandatory” clients bundled with configuration files.&lt;/p&gt;</description>
+      <guid>https://amirmmafakheri.github.io/emtwo.info/articles/vpns/</guid>
+      <description>&lt;hr&gt;&#xA;&lt;h3 id=&#34;rats-permission-abuse-and-backdoor-persistence&#34;&gt;RATs, Permission Abuse, and Backdoor Persistence&lt;/h3&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;During periods of network instability or censorship, VPN usage on Android devices increases dramatically. This surge creates an ideal environment for &lt;strong&gt;mass-target attacks&lt;/strong&gt;, where adversaries distribute malicious applications at scale instead of targeting specific individuals.&lt;/p&gt;&#xA;&lt;p&gt;This analysis does &lt;strong&gt;not&lt;/strong&gt; focus on VPN protocols themselves (such as V2Ray, VLESS, or Trojan), but rather on &lt;strong&gt;malicious Android VPN clients&lt;/strong&gt; that are distributed either as fake VPN apps or as “mandatory” clients bundled with configuration files.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Survivorship Bias: The Beautiful Illusion of Success</title>
-      <link>https://emtwo.info/articles/survivorship_bias/</link>
+      <link>https://amirmmafakheri.github.io/emtwo.info/articles/survivorship_bias/</link>
       <pubDate>Sun, 23 Nov 2025 02:40:02 +0000</pubDate>
-      <guid>https://emtwo.info/articles/survivorship_bias/</guid>
-      <description>&lt;p&gt;In the world of statistics and analysis, there&amp;rsquo;s a phenomenon that may not be widely known by name, but we deal with it almost every day in our lives: Survivorship Bias. It means we only see those who &amp;ldquo;survived&amp;rdquo;, succeeded, were visible—but those who failed and dropped out are completely erased from our minds. Even though they are an important part of the reality.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Airplanes Full of Bullet Holes, Yet Still in the Sky&lt;/strong&gt;&lt;/p&gt;</description>
+      <guid>https://amirmmafakheri.github.io/emtwo.info/articles/survivorship_bias/</guid>
+      <description>&lt;p&gt;In the world of statistics and analysis, there&amp;rsquo;s a phenomenon that may not be widely known by name, but we deal with it almost every day in our lives: Survivorship Bias. It means we only see those who &amp;ldquo;survived&amp;rdquo;, succeeded, were visible—but those who failed and dropped out are completely erased from our minds. Even though they are an important part of the reality.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Airplanes Full of Bullet Holes, Yet Still in the Sky&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>The Human Bootloader: How We Switch Personalities Without a Restart</title>
-      <link>https://emtwo.info/articles/humans_and_machines/</link>
+      <link>https://amirmmafakheri.github.io/emtwo.info/articles/humans_and_machines/</link>
       <pubDate>Sun, 07 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>https://emtwo.info/articles/humans_and_machines/</guid>
-      <description>&lt;p&gt;‼️Note: This is a psychology essay, not a technical manual. It uses the language and metaphors of computing to explore the inner depths of human personality, making complex inner processes easier to grasp through familiar technical imagery.&lt;/p&gt;
-&lt;p&gt;We often describe people as “complicated.” A cleaner metaphor is this: &lt;strong&gt;a human is a complex computer&lt;/strong&gt;—a stack of &lt;code&gt;hardware&lt;/code&gt;, &lt;code&gt;firmware&lt;/code&gt;, and &lt;code&gt;software&lt;/code&gt;—where different layers can take the lead at any moment and determine &lt;em&gt;which version&lt;/em&gt; of us shows up in the world. Unlike a machine, however, we don’t need a full &lt;code&gt;reboot&lt;/code&gt; to change modes. Our &lt;code&gt;bootloader&lt;/code&gt; is always available, letting us pivot in milliseconds from one behavioral profile to another.&lt;/p&gt;</description>
+      <guid>https://amirmmafakheri.github.io/emtwo.info/articles/humans_and_machines/</guid>
+      <description>&lt;p&gt;‼️Note: This is a psychology essay, not a technical manual. It uses the language and metaphors of computing to explore the inner depths of human personality, making complex inner processes easier to grasp through familiar technical imagery.&lt;/p&gt;&#xA;&lt;p&gt;We often describe people as “complicated.” A cleaner metaphor is this: &lt;strong&gt;a human is a complex computer&lt;/strong&gt;—a stack of &lt;code&gt;hardware&lt;/code&gt;, &lt;code&gt;firmware&lt;/code&gt;, and &lt;code&gt;software&lt;/code&gt;—where different layers can take the lead at any moment and determine &lt;em&gt;which version&lt;/em&gt; of us shows up in the world. Unlike a machine, however, we don’t need a full &lt;code&gt;reboot&lt;/code&gt; to change modes. Our &lt;code&gt;bootloader&lt;/code&gt; is always available, letting us pivot in milliseconds from one behavioral profile to another.&lt;/p&gt;</description>
     </item>
     <item>
       <title>🕷️ One Year of Data Engineering in the Field: A Practical Journey with a Startup Crawler Team</title>
-      <link>https://emtwo.info/articles/data_crawling/</link>
+      <link>https://amirmmafakheri.github.io/emtwo.info/articles/data_crawling/</link>
       <pubDate>Sun, 03 Aug 2025 02:40:02 +0000</pubDate>
-      <guid>https://emtwo.info/articles/data_crawling/</guid>
-      <description>&lt;h2 id=&#34;1-a-brief-overview-of-crawling-and-its-role&#34;&gt;1. A Brief Overview of Crawling and Its Role&lt;/h2&gt;
-&lt;p&gt;Crawling refers to the automated process of navigating through web pages to extract targeted data. This data can include product details, prices, descriptions, images, user reviews, and even hidden API endpoints. The ultimate goal is to programmatically access structured data that would otherwise be visible only through manual interaction with a browser.&lt;/p&gt;
-&lt;p&gt;In real-world data pipelines, crawling is just one stage. It is typically followed by scraping (data extraction), parsing (data interpretation), and eventually storage or usage. For startups, crawlers play a vital role—especially in building platforms for price comparison, market intelligence, or competitive analysis.&lt;/p&gt;</description>
+      <guid>https://amirmmafakheri.github.io/emtwo.info/articles/data_crawling/</guid>
+      <description>&lt;h2 id=&#34;1-a-brief-overview-of-crawling-and-its-role&#34;&gt;1. A Brief Overview of Crawling and Its Role&lt;/h2&gt;&#xA;&lt;p&gt;Crawling refers to the automated process of navigating through web pages to extract targeted data. This data can include product details, prices, descriptions, images, user reviews, and even hidden API endpoints. The ultimate goal is to programmatically access structured data that would otherwise be visible only through manual interaction with a browser.&lt;/p&gt;&#xA;&lt;p&gt;In real-world data pipelines, crawling is just one stage. It is typically followed by scraping (data extraction), parsing (data interpretation), and eventually storage or usage. For startups, crawlers play a vital role—especially in building platforms for price comparison, market intelligence, or competitive analysis.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Reflected XSS via Magic Words</title>
-      <link>https://emtwo.info/articles/reflected_xss_via_magic_words/</link>
+      <link>https://amirmmafakheri.github.io/emtwo.info/articles/reflected_xss_via_magic_words/</link>
       <pubDate>Mon, 24 Mar 2025 02:40:02 +0000</pubDate>
-      <guid>https://emtwo.info/articles/reflected_xss_via_magic_words/</guid>
-      <description>&lt;h3 id=&#34;overview&#34;&gt;Overview&lt;/h3&gt;
-&lt;p&gt;This report details the discovery and exploitation of a XSS vulnerability identified in the Vulnerability Disclosure Program (VDP) of a target website.&lt;/p&gt;
-&lt;h3 id=&#34;reconnaissance&#34;&gt;Reconnaissance&lt;/h3&gt;
-&lt;p&gt;The reconnaissance phase began with the enumeration of subdomains to identify fresh assets that might be unexplored by previous researchers. Initially, I utilized the tool &lt;code&gt;subfinder&lt;/code&gt; with the following command:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;subfinder -d target.com -all -silent | tee target.com.subs
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Using the &lt;code&gt;-all&lt;/code&gt; switch significantly enhanced the enumeration results. To ensure comprehensive coverage, DNS brute-forcing was also executed with &lt;code&gt;shuffleDNS&lt;/code&gt; against a wordlist containing approximately 24 million entries:&lt;/p&gt;</description>
+      <guid>https://amirmmafakheri.github.io/emtwo.info/articles/reflected_xss_via_magic_words/</guid>
+      <description>&lt;h3 id=&#34;overview&#34;&gt;Overview&lt;/h3&gt;&#xA;&lt;p&gt;This report details the discovery and exploitation of a XSS vulnerability identified in the Vulnerability Disclosure Program (VDP) of a target website.&lt;/p&gt;&#xA;&lt;h3 id=&#34;reconnaissance&#34;&gt;Reconnaissance&lt;/h3&gt;&#xA;&lt;p&gt;The reconnaissance phase began with the enumeration of subdomains to identify fresh assets that might be unexplored by previous researchers. Initially, I utilized the tool &lt;code&gt;subfinder&lt;/code&gt; with the following command:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;subfinder -d target.com -all -silent | tee target.com.subs&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Using the &lt;code&gt;-all&lt;/code&gt; switch significantly enhanced the enumeration results. To ensure comprehensive coverage, DNS brute-forcing was also executed with &lt;code&gt;shuffleDNS&lt;/code&gt; against a wordlist containing approximately 24 million entries:&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
