@@ -25,8 +25,8 @@ My focus is on finding, exploiting, and reporting security flaws in real-world s
 
 ## 📜 Professional Knowledge
 
-- **Advanced Web Crawling & Scraping** — Python-based spidering and crawling at scale, including distributed collection and authorized testing of crawler behavior around WAF and firewall controls.
-- **Android APK Reverse Engineering** — Static and dynamic analysis using Ghidra, jadx, and Frida.
+- **Advanced Web Crawling & Data gathering** — Python-based spidering and scraping at scale, including distributed collection and bypassing WAF protection with unknown techniques. 😎
+- **Android APK Reverse Engineering** — Static and dynamic analysis using Ghidra, jadx, and Frida and all AI toolkit(REA, github copilot, ...)
 - **Android Malware Forensics** — Forensic analysis of Android malware, ransomware, and other malicious or unwanted applications.
 - **OWASP Top 10** expertise for web vulnerability assessment.  
 - **Bug Bounty Methodologies** for structured vulnerability hunting.  
