@@ -25,7 +25,9 @@ My focus is on finding, exploiting, and reporting security flaws in real-world s
 
 ## 📜 Professional Knowledge
 
-- **Network+** and **LPIC-1/2** certified knowledge in networking and Linux administration.  
+- **Advanced Web Crawling & Scraping** — Python-based spidering and crawling at scale, including distributed collection and authorized testing of crawler behavior around WAF and firewall controls.
+- **Android APK Reverse Engineering** — Static and dynamic analysis using Ghidra, jadx, and Frida.
+- **Android Malware Forensics** — Forensic analysis of Android malware, ransomware, and other malicious or unwanted applications.
 - **OWASP Top 10** expertise for web vulnerability assessment.  
 - **Bug Bounty Methodologies** for structured vulnerability hunting.  
 - Practical experience with **threat hunting**, **forensic analysis**, and **incident response** workflows.
