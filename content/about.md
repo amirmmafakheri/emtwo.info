@@ -19,9 +19,17 @@ My focus is on finding, exploiting, and reporting security flaws in real-world s
 
 ## 🛠 Skills & Tooling
 
+### Traditional
+
 - **Programming & Scripting:** Python, Bash, (learning C for low-level security work)  
 - **Custom Security Tools:** Recon automation, vulnerability extractors, backup discovery, tamper testing, and data exfiltration utilities.  
 - **OSINT & Threat Intelligence:** Shodan, Maltego, Google Dorking, and advanced search operators.  
+
+### 0-Day Skills
+
+- **AI-Assisted Full-Stack Development:** Rapidly building web applications with a full-stack understanding of application architecture and infrastructure, using FastAPI and React with AI tools.
+- **Deployment & CI/CD:** Deploying applications and setting up CI/CD workflows.
+- **Security-First Development & Code Auditing:** Applying a strict security-focused approach throughout development, then auditing code with AI-assisted tools.
 
 ## 📜 Professional Knowledge
 
