@@ -31,5 +31,11 @@ unsafe = true
     url = "/download/"
     weight = 4
 
+  [[menu.main]]
+    identifier = "contact"
+    name = "Contact"
+    url = "/contact/"
+    weight = 5
+
 [params]
   showReadingTime = true
